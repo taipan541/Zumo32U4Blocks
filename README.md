@@ -11,7 +11,9 @@ TO USE:
 You need 3 things:
 
 1) Blocklyduino installed on your local computer (see https://github.com/BlocklyDuino/BlocklyDuino)
+
 2) the two zumo32U4.js files included in this repository placed in Blocklyduino/blockly/.  One in the blocks directory and one in the generators directory.
+
 3) add the following to the end of Blocklyduino/blockly/apps/blocklyduino/index.html
 	<category name="Zumo">
            <block type="output_leftzmotor"></block>
