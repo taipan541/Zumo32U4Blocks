@@ -2,9 +2,9 @@
 
 To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
 1) Blocklyduino installed on your local computer (see https://github.com/BlocklyDuino/BlocklyDuino)
-2) this custom.js file in Blocklyduino\blockly\blocks
-3) another custom.js file (included in this repository) for building code in Blocklyduino\blockly\generators
-4) add the following to the end of index.html file in Blocklyduino\blockly\apps\blocklyduino\
+2) this .js file in Blocklyduino/blockly/blocks
+3) another zumo32U4.js file (included in this repository) for building code in Blocklyduino/blockly/generators
+4) add the following to the end of index.html file in Blocklyduino/blockly/apps/blocklyduino/
 	<category name="Zumo">
            <block type="output_leftzmotor"></block>
            <block type="output_rightzmotor"></block>
