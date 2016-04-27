@@ -1,3 +1,26 @@
+/* Generates code in Blocklyduino environment for use with Pololu Zumo 32U4 mini-sumo robot
+To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
+1) Blocklyduino installed on your local computer (see https://github.com/BlocklyDuino/BlocklyDuino)
+2) this .js file in Blocklyduino/blockly/generators/arduino
+3) another zumo32U4.js file (included in this repository) for building blocks in Blocklyduino/blockly/blocks
+4) add the following to the end of index.html file in Blocklyduino/blockly/apps/blocklyduino/
+	<category name="Zumo">
+           <block type="output_leftzmotor"></block>
+           <block type="output_rightzmotor"></block>
+           <block type="zprox_sense"></block>
+           <block type="button_a"></block>
+           <block type="button_b"></block>
+           <block type="button_c"></block>
+           <block type="lcd_clear"></block>
+           <block type="lcd_string"></block>
+           <block type="lcd_number"></block>
+    </category>
+If you are working with the Zumo 32U4 bot then i assume you are already with uploading code to it from the 
+Arduino IDE (Google: "arduino").  You will need the Pololu libraries and board drivers for Zumo from the Pololu site.
+Sounds like a bit of mucking around but you've got this far.  One step at a time it can be done.
+I run the whole setup from a USB drive when working in the classroom.
+Author jwill*/
+
 goog.provide('Blockly.Arduino.custom');
 
 goog.require('Blockly.Arduino');
