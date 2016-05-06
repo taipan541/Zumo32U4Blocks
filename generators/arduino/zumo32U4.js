@@ -57,7 +57,7 @@ Blockly.Arduino['zprox_sense'] = function() {
     var code =  'proxSensors.countsRightWithRightLeds()';
   }
 
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 /* generate code for Button reading */
 Blockly.Arduino['button_a'] = function() {
@@ -67,7 +67,7 @@ Blockly.Arduino['button_a'] = function() {
 
   var code = 'buttona.getSingleDebouncedPress()';
 
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino['button_b'] = function() {
@@ -87,7 +87,7 @@ Blockly.Arduino['button_c'] = function() {
 
   var code = 'buttonc.getSingleDebouncedPress()';
 
-  return code;
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino['lcd_clear'] = function() {
