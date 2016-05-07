@@ -77,7 +77,7 @@ Blockly.Arduino['button_b'] = function() {
 
   var code = 'buttonb.getSingleDebouncedPress()';
 
-  return [code, Blockly.Arduino.ATOMIC];
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
 Blockly.Arduino['button_c'] = function() {
