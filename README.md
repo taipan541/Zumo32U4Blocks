@@ -19,6 +19,7 @@ To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
 `<category name="Zumo">
 	<block type="output_leftzmotor"></block>
 	<block type="output_rightzmotor"></block>
+	<block type="output_bothzmotor"></block>
 	<block type="zprox_sense"></block>
 	<block type="read_prox_sense"></block>
 	<block type="line_sense"></block>

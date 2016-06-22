@@ -36,6 +36,28 @@ Blockly.Arduino['output_rightzmotor'] = function() {
 return code;
 };
 
+Blockly.Arduino['output_bothzmotor'] = function() {
+  var dropdown_direction_L = this.getFieldValue('Direction_L');
+  var dropdown_direction_R = this.getFieldValue('Direction_R');
+  var value_speed_L = Blockly.Arduino.valueToCode(this, 'SPEED_L', Blockly.Arduino.ORDER_ATOMIC);
+  var value_speed_R = Blockly.Arduino.valueToCode(this, 'SPEED_R', Blockly.Arduino.ORDER_ATOMIC);
+
+  Blockly.Arduino.definitions_['define_Zumo32U4Motors'] = '#include <Zumo32U4Motors.h>\n';
+  Blockly.Arduino.definitions_['var_Zumo32U4Motors'] = 'Zumo32U4Motors motors;\n';
+
+  if(dropdown_direction_L == "BACKWARD_L"){
+	  value_speed_L = value_speed_L * -1;
+  }
+
+  if(dropdown_direction_R == "BACKWARD_R"){
+	  value_speed_R = value_speed_R * -1;
+  }
+  
+  var code = 'motors.setSpeeds(' + value_speed_L + ', ' + value_speed_R + ');\n';
+
+return code;
+};
+
 /* generate code to read proximity sensors */
 Blockly.Arduino['zprox_sense'] = function() {
   var dropdown_sensor = this.getFieldValue('SENSOR');

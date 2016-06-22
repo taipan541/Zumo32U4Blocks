@@ -8,6 +8,7 @@ To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
 	<category name="Zumo">
            <block type="output_leftzmotor"></block>
            <block type="output_rightzmotor"></block>
+           <block type="output_bothzmotor"></block>
            <block type="zprox_sense"></block>
 		   <block type="read_prox_sense"></block>
 		   <block type="line_sense"></block>
@@ -69,6 +70,34 @@ Blockly.Blocks['output_rightzmotor'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+/* Edit both motors block here:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#9gd7hq
+*/
+Blockly.Blocks['output_bothzmotor'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Zumo Both Motors");
+    this.appendDummyInput()
+        .appendField("Left:")
+        .appendField(new Blockly.FieldDropdown([["Forward", "FORWARD"], ["Backward", "BACKWARD"]]), "Direction_L");
+    this.appendValueInput("SPEED_L")
+        .setCheck("Number")
+        .appendField("Speed");
+    this.appendDummyInput()
+        .appendField("Right:")
+        .appendField(new Blockly.FieldDropdown([["Forward", "FORWARD"], ["Backward", "BACKWARD"]]), "Direction_R");
+    this.appendValueInput("SPEED_R")
+        .setCheck("Number")
+        .appendField("Speed");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(30);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 /* Edit Proximity sensor block here:
 https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#v7hiz7
 */
