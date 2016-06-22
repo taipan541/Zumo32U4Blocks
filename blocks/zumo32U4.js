@@ -9,6 +9,9 @@ To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
            <block type="output_leftzmotor"></block>
            <block type="output_rightzmotor"></block>
            <block type="zprox_sense"></block>
+		   <block type="read_prox_sense"></block>
+		   <block type="line_sense"></block>
+		   <block type="read_line_sense"></block>
            <block type="button_a"></block>
            <block type="button_b"></block>
            <block type="button_c"></block>
@@ -85,6 +88,51 @@ Blockly.Blocks['zprox_sense'] = {
     this.setOutput(true, "Number");
     this.setColour(10);
     this.setTooltip('returns a reflected IR brightness level with front IR LEDS on: 4(low), 15, 32, 55, 85, 120(hi).');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+/* Edit read proximity sensor block here:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#psbscf
+*/
+Blockly.Blocks['read_prox_sense'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Read Zumo Proximity Sensors");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+/* Edit Line sensor block here:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#g8v4qx
+*/
+Blockly.Blocks['line_sense'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Zumo Line Sensor");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldDropdown([["Sensor_0", "SENSOR_0"], ["Sensor_1", "SENSOR_1"], ["Sensor_2", "SENSOR_2"], ["Sensor_3", "SENSOR_3"], ["Sensor_4", "SENSOR_4"]]), "SENSOR");
+    this.setInputsInline(true);
+    this.setOutput(true, "Number");
+    this.setColour(20);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+/* Edit Line sensor block here:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#ubtfnz
+*/
+Blockly.Blocks['read_line_sense'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Read Zumo Line Sensors");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(20);
+    this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
 };

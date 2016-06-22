@@ -51,7 +51,7 @@ Blockly.Arduino['zprox_sense'] = function() {
     var code =  'proxSensors.countsFrontWithRightLeds()';
   }
   if(dropdown_sensor == "SIDE_LEFT") {
-    var code =  'proxSensors.countsLeftWithLeftLeds()';
+   	var code =  'proxSensors.countsLeftWithLeftLeds()';
   }
   if(dropdown_sensor == "SIDE_RIGHT") {
     var code =  'proxSensors.countsRightWithRightLeds()';
@@ -59,6 +59,47 @@ Blockly.Arduino['zprox_sense'] = function() {
 
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
+
+Blockly.Arduino['read_prox_sense'] = function() {
+	var code = 'proxSensors.read();\n';
+	
+	return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+/* generate code to read line sensors */
+Blockly.Arduino['line_sense'] = function() {
+  var dropdown_sensor = this.getFieldValue('SENSOR');
+
+  Blockly.Arduino.definitions_['define_Zumo32U4LineSensors'] = '#include <Zumo32U4LineSensors.h>\n';
+  Blockly.Arduino.definitions_['var_Zumo32U4LineSensors'] = 'Zumo32U4LineSensors lineSensors;\n';
+  Blockly.Arduino.definitions_['arr_Zumo32U4LineSensors'] = 'uint16_t lineSensorValues[5];\n';
+  Blockly.Arduino.setups_['setup_init_sensors_line'] = 'lineSensors.initFiveSensors();\n';
+
+  if(dropdown_sensor == "SENSOR_0") {
+    var code =  'lineSensorValues[0]';
+  }
+  if(dropdown_sensor == "SENSOR_1") {
+    var code =  'lineSensorValues[1]';
+  }
+  if(dropdown_sensor == "SENSOR_2") {
+    var code =  'lineSensorValues[2]';
+  }
+  if(dropdown_sensor == "SENSOR_3") {
+    var code =  'lineSensorValues[3]';
+  }
+  if(dropdown_sensor == "SENSOR_4") {
+    var code =  'lineSensorValues[4]';
+  }
+  
+  return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
+Blockly.Arduino['read_line_sense'] = function() {
+	var code = 'lineSensors.read(lineSensorValues);\n';
+	
+	return [code, Blockly.Arduino.ORDER_ATOMIC];
+};
+
 /* generate code for Button reading */
 Blockly.Arduino['button_a'] = function() {
 
