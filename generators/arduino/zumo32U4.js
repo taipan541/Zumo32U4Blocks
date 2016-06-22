@@ -63,7 +63,7 @@ Blockly.Arduino['zprox_sense'] = function() {
 Blockly.Arduino['read_prox_sense'] = function() {
 	var code = 'proxSensors.read();\n';
 	
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /* generate code to read line sensors */
@@ -97,7 +97,7 @@ Blockly.Arduino['line_sense'] = function() {
 Blockly.Arduino['read_line_sense'] = function() {
 	var code = 'lineSensors.read(lineSensorValues);\n';
 	
-	return [code, Blockly.Arduino.ORDER_ATOMIC];
+	return code;
 };
 
 /* generate code for Button reading */
@@ -158,4 +158,39 @@ Blockly.Arduino['lcd_number'] = function() {
 
   var code = 'lcd.print('+value_lcd_number+');\n';
   return code;
+};
+/* generate code for Buzzer */
+Blockly.Arduino['buzzer_play'] = function() {
+    Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
+    Blockly.Arduino.definitions_['var_Zumo32U4_buzzer'] = 'Zumo32U4Buzzer buzzer;\n';
+	
+	var dropdown_note = this.getFieldValue('NOTE');
+	var octave = Blockly.Arduino.valueToCode(this, 'OCTAVE', Blockly.Arduino.ORDER_ATOMIC);
+	var durationSec = Blockly.Arduino.valueToCode(this, 'DURATION', Blockly.Arduino.ORDER_ATOMIC);
+	var volume = Blockly.Arduino.valueToCode(this, 'VOLUME', Blockly.Arduino.ORDER_ATOMIC);
+	
+	var code = 'buzzer.playNote(';
+	
+	if(dropdown_note == 'SILENT') {
+		code += 'SILENT_NOTE';
+	}
+	else {
+		code += 'NOTE_' + dropdown_note;
+		code += '(' + octave + ')';
+	}
+	
+	code += ', ';
+	code += (durationSec * 1000);
+	code += ', ';
+	code += volume + ');\n';
+	
+	return code;
+};
+Blockly.Arduino['buzzer_stop'] = function() {
+    Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
+    Blockly.Arduino.definitions_['var_Zumo32U4_buzzer'] = 'Zumo32U4Buzzer buzzer;\n';
+	
+    var code = 'buzzer.stopPlaying();\n';
+	
+    return code;
 };

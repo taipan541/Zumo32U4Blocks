@@ -18,20 +18,15 @@ To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
            <block type="lcd_clear"></block>
            <block type="lcd_string"></block>
            <block type="lcd_number"></block>
+           <block type="buzzer_play"></block>
+           <block type="buzzer_stop"></block>
     </category>
 
-If you are working with the Zumo 32U4 bot then i assume you are already familiar with uploading code to it from the 
-Arduino IDE (check Pololu site).  You will need the Pololu libraries and board drivers for Zumo32U4 from the Pololu site.
-
-I run the whole setup from a USB drive when working in the classroom.
-
-Author jwill4 */
+Original Author jwill4
+Extension Author taipan541 */
 
 /* Credit to Fred Lin for developing the original Blocklyduino code
 https://github.com/BlocklyDuino/BlocklyDuino */
-
-
-
 
 'use strict';
 
@@ -92,7 +87,7 @@ Blockly.Blocks['zprox_sense'] = {
   }
 };
 /* Edit read proximity sensor block here:
-https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#psbscf
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#9zbeff
 */
 Blockly.Blocks['read_prox_sense'] = {
   init: function() {
@@ -100,13 +95,13 @@ Blockly.Blocks['read_prox_sense'] = {
         .appendField("Read Zumo Proximity Sensors");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(20);
+    this.setColour(10);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
 };
 /* Edit Line sensor block here:
-https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#g8v4qx
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#to34qt
 */
 Blockly.Blocks['line_sense'] = {
   init: function() {
@@ -117,13 +112,13 @@ Blockly.Blocks['line_sense'] = {
         .appendField(new Blockly.FieldDropdown([["Sensor_0", "SENSOR_0"], ["Sensor_1", "SENSOR_1"], ["Sensor_2", "SENSOR_2"], ["Sensor_3", "SENSOR_3"], ["Sensor_4", "SENSOR_4"]]), "SENSOR");
     this.setInputsInline(true);
     this.setOutput(true, "Number");
-    this.setColour(20);
+    this.setColour(15);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
 };
 /* Edit Line sensor block here:
-https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#ubtfnz
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#kfyiky
 */
 Blockly.Blocks['read_line_sense'] = {
   init: function() {
@@ -131,7 +126,7 @@ Blockly.Blocks['read_line_sense'] = {
         .appendField("Read Zumo Line Sensors");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(20);
+    this.setColour(15);
     this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
@@ -209,6 +204,47 @@ Blockly.Blocks['lcd_number'] = {
     this.setNextStatement(true);
     this.setColour(10);
     this.setTooltip('prints number to LCD screen');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+/* Edit buzzer block here:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#cz56ke
+*/
+Blockly.Blocks['buzzer_play'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Zumo Play Buzzer");
+    this.appendDummyInput()
+        .appendField("Note")
+        .appendField(new Blockly.FieldDropdown([["C", "C"], ["C#", "C_SHARP"], ["Db", "D_FLAT"], ["D", "D"], ["D#", "D_SHARP"], ["Eb", "E_FLAT"], ["E", "E"], ["F", "F"], ["F#", "F_SHARP"], ["Gb", "G_FLAT"], ["G", "G"], ["G#", "G_SHARP"], ["Ab", "A_FLAT"], ["A", "A"], ["A#", "A_SHARP"], ["Bb", "B_FLAT"], ["B", "B"], ["Silent", "SILENT"]]), "NOTE");
+    this.appendValueInput("OCTAVE")
+        .setCheck("Number")
+        .appendField("octave");
+    this.appendValueInput("DURATION")
+        .setCheck("Number")
+        .appendField("duration (seconds)");
+    this.appendValueInput("VOLUME")
+        .setCheck("Number")
+        .appendField("volume");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(30);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+/* Edit buzzer block here:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#fwdedx
+*/
+Blockly.Blocks['buzzer_stop'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Zumo Stop Buzzer");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(30);
+    this.setTooltip('');
     this.setHelpUrl('http://www.example.com/');
   }
 };
