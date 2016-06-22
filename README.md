@@ -17,18 +17,18 @@ To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
 4. add the following to the end of index.html file in Blocklyduino\blockly\apps\blocklyduino\
 
 `<category name="Zumo">
-           <block type="output_leftzmotor"></block>
-           <block type="output_rightzmotor"></block>
-           <block type="zprox_sense"></block>
-		   <block type="read_prox_sense"></block>
-		   <block type="line_sense"></block>
-		   <block type="read_line_sense"></block>
-           <block type="button_a"></block>
-           <block type="button_b"></block>
-           <block type="button_c"></block>
-           <block type="lcd_clear"></block>
-           <block type="lcd_string"></block>
-           <block type="lcd_number"></block>
-           <block type="buzzer_play"></block>
-           <block type="buzzer_stop"></block>
-    </category>`
+	<block type="output_leftzmotor"></block>
+	<block type="output_rightzmotor"></block>
+	<block type="zprox_sense"></block>
+	<block type="read_prox_sense"></block>
+	<block type="line_sense"></block>
+	<block type="read_line_sense"></block>
+	<block type="button_a"></block>
+	<block type="button_b"></block>
+	<block type="button_c"></block>
+	<block type="lcd_clear"></block>
+	<block type="lcd_string"></block>
+	<block type="lcd_number"></block>
+	<block type="buzzer_play"></block>
+	<block type="buzzer_stop"></block>
+</category>`
