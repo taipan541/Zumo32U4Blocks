@@ -153,6 +153,29 @@ Blockly.Arduino['button_c'] = function() {
   return [code, Blockly.Arduino.ORDER_ATOMIC];
 };
 
+/* generate code for LED on or off */
+Blockly.Arduino['led_red'] = function() {
+  var statusLed = this.getFieldValue('status');
+  Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
+  var code = 'ledRed(' + statusLed + ');\n';
+  
+  return code;
+};
+Blockly.Arduino['led_yellow'] = function() {
+  var statusLed = this.getFieldValue('status');
+  Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
+  var code = 'ledYellow(' + statusLed + ');\n';
+  
+  return code;
+};
+Blockly.Arduino['led_green'] = function() {
+  var statusLed = this.getFieldValue('status');
+  Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
+  var code = 'ledGreen(' + statusLed + ');\n';
+  
+  return code;
+};
+
 Blockly.Arduino['lcd_clear'] = function() {
 
   Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';

@@ -16,6 +16,9 @@ To use Zumo 32U4 blocks in Blocklyduino you need 4 things:
            <block type="button_a"></block>
            <block type="button_b"></block>
            <block type="button_c"></block>
+           <block type="led_red"></block>
+           <block type="led_yellow"></block>
+           <block type="led_green"></block>
            <block type="lcd_clear"></block>
            <block type="lcd_string"></block>
            <block type="lcd_number"></block>
@@ -194,6 +197,52 @@ Blockly.Blocks['button_c'] = {
   }
 };
 
+/* Edit LED block here:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#owzhug
+*/
+Blockly.Blocks['led_red'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Red LED");
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["On", "1"], ["Off", "0"]]), "status");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
+Blockly.Blocks['led_yellow'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Yellow LED");
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["On", "1"], ["Off", "0"]]), "status");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+Blockly.Blocks['led_green'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Green LED");
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["On", "1"], ["Off", "0"]]), "status");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(0);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
 Blockly.Blocks['lcd_clear'] = {
   init: function() {
     this.appendDummyInput()
