@@ -285,6 +285,44 @@ Blockly.Blocks['lcd_number'] = {
     this.setHelpUrl('http://www.example.com/');
   }
 };
+/* Edit LCD string block here: https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#mkpfvz
+*/
+Blockly.Blocks['lcd_string_location'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("LCD  \"")
+        .appendField(new Blockly.FieldTextInput("Hello"), "LCD_STRING")
+        .appendField("\"")
+        .appendField("at column")
+        .appendField(new Blockly.FieldDropdown([["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]]), "COLUMN")
+        .appendField("row")
+        .appendField(new Blockly.FieldDropdown([["0", "0"], ["1", "1"]]), "ROW");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(10);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+/* Edit LCD string block here: https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#9erx46
+*/
+Blockly.Blocks['lcd_location'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("LCD go to column")
+        .appendField(new Blockly.FieldDropdown([["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"]]), "COLUMN")
+        .appendField("row")
+        .appendField(new Blockly.FieldDropdown([["0", "0"], ["1", "1"]]), "ROW");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(10);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.example.com/');
+  }
+};
+
 /* Edit buzzer block here:
 https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#cz56ke
 */

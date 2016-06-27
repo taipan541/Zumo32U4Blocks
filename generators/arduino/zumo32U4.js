@@ -204,6 +204,28 @@ Blockly.Arduino['lcd_number'] = function() {
   var code = 'lcd.print('+value_lcd_number+');\n';
   return code;
 };
+Blockly.Arduino['lcd_string_location'] = function() {
+  var text_lcd_string = this.getFieldValue('LCD_STRING');
+  var column = this.getFieldValue('COLUMN');
+  var row = this.getFieldValue('ROW');
+
+  Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
+  Blockly.Arduino.definitions_['var_Zumo32U4_LCD'] = 'Zumo32U4LCD lcd;\n';
+	
+  var code = 'lcd.gotoXY(' + column + ', ' + row + ');\n';
+  code += 'lcd.print("'+text_lcd_string+'");\n';
+  return code;
+};
+Blockly.Arduino['lcd_location'] = function() {
+  var column = this.getFieldValue('COLUMN');
+  var row = this.getFieldValue('ROW');
+
+  Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
+  Blockly.Arduino.definitions_['var_Zumo32U4_LCD'] = 'Zumo32U4LCD lcd;\n';
+	
+  var code = 'lcd.gotoXY(' + column + ', ' + row + ');\n';
+  return code;
+};
 /* generate code for Buzzer */
 Blockly.Arduino['buzzer_play'] = function() {
     Blockly.Arduino.definitions_['define_Zumo32U4'] = '#include <Zumo32U4.h>\n';
