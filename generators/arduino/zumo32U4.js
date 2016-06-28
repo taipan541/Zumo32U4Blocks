@@ -45,11 +45,11 @@ Blockly.Arduino['output_bothzmotor'] = function() {
   Blockly.Arduino.definitions_['define_Zumo32U4Motors'] = '#include <Zumo32U4Motors.h>\n';
   Blockly.Arduino.definitions_['var_Zumo32U4Motors'] = 'Zumo32U4Motors motors;\n';
 
-  if(dropdown_direction_L == "BACKWARD_L"){
+  if(dropdown_direction_L == "BACKWARD"){
 	  value_speed_L = value_speed_L * -1;
   }
 
-  if(dropdown_direction_R == "BACKWARD_R"){
+  if(dropdown_direction_R == "BACKWARD"){
 	  value_speed_R = value_speed_R * -1;
   }
   
